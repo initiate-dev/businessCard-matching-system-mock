@@ -53,9 +53,12 @@ function Gate() {
   )
 }
 
+// GitHub Pages ではサイトがフォルダ（/<リポジトリ名>/）の下にあるので、ルーターにもそのフォルダを教える
+const basename = import.meta.env.BASE_URL.replace(/\/$/, '') || '/'
+
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <DataProvider>
         <Gate />
       </DataProvider>

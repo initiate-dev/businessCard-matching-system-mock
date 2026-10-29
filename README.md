@@ -56,3 +56,13 @@ src/
   styles/       tokens.css（寸法・色）、global.css、ui.ts（共通の見た目）
 public/_redirects  Cloudflare Pages の SPA フォールバック
 ```
+
+## GitHub Pages への公開
+
+`main` にプッシュすると GitHub Actions（`.github/workflows/deploy-pages.yml`）が自動でビルドして公開します。
+
+- 公開先: https://initiate-dev.github.io/businessCard-matching-system-mock/
+- 初回だけ、リポジトリの Settings → Pages → Build and deployment の Source を「GitHub Actions」にする
+- サイトが `/<リポジトリ名>/` の下に置かれるので、ビルド時に `BASE_PATH` を渡している（ローカルでは不要）
+- 再読み込みで 404 にならないよう、`index.html` を `404.html` としても置いている
+- 誰でも見られるページになる。モック用アカウントもログイン画面に出ているので、実在の名刺は入力しないこと（入力内容はブラウザ内にだけ保存され、送信はされない）
